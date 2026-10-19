@@ -1,0 +1,19 @@
+{
+  "learning_rate": 0.00001,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.95,
+  "weight_decay": 0.02,
+  "num_train_epochs": 1.0,
+  "gradient_accumulation_steps": 8,
+  "num_generations": 8,
+  "beta": 0.04,
+  "format_weight": 0.1,
+  "temperature": 1.0,
+  "max_prompt_length": 8192,
+  "max_completion_length": 1024,
+  "total_pixels": 12845056,
+  "min_pixels": 12544,
+  "seed": 42,
+  "save_steps": 500,
+  "logging_steps": 1
+}
