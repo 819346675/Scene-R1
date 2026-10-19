@@ -1,0 +1,25 @@
+Scene-R1 public inference and geometry release
+
+This distribution retains the Apache License 2.0 text supplied with the
+Scene-R1 baseline archive. The original baseline README acknowledges:
+  Time-R1 / TimeZero: https://github.com/xiaomi-research/Time-R1
+The baseline training sources also retain Hugging Face copyright notices;
+those training sources are not included in this focused release.
+
+The single-example model interface is adapted from the baseline Scene-R1
+Qwen2.5-VL inference flow. Dataset evaluation loops were not retained.
+The geometry/import adapter is a cleaned implementation of the extended
+release's candidate-matching interface, with explicit validation and fallbacks.
+These adaptations are not presented as the exact code used for paper results.
+
+External dependencies (not copied into this distribution):
+  SAI3D: https://github.com/yd-yin/SAI3D
+  Semantic-SAM: https://github.com/UX-Decoder/Semantic-SAM
+  SAM2: https://github.com/facebookresearch/sam2
+  Qwen2.5-VL: https://github.com/QwenLM/Qwen2.5-VL
+  Transformers: https://github.com/huggingface/transformers
+
+No model checkpoints, raw datasets, benchmark predictions, third-party
+reports, or upstream SAI3D/Semantic-SAM source trees are redistributed here.
+Consult each maintainer's terms; the Apache license here does not relicense
+external code, checkpoints, data, images, or annotations.

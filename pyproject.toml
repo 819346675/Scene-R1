@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scene-r1"
+version = "0.1.0"
+description = "Scene-R1 inference components and SAI3D candidate refinement"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE.txt"}
+dependencies = ["numpy>=1.24,<3", "Pillow>=10,<12"]
+
+[project.optional-dependencies]
+vlm = ["torch>=2.5,<3", "transformers>=4.51,<5", "qwen-vl-utils[decord]>=0.0.11,<0.1", "accelerate>=1,<2"]
+ply = ["plyfile>=1.0,<2"]
+
+[project.scripts]
+scene-r1 = "scene_r1.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["scene_r1*"]

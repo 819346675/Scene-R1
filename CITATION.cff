@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the Scene-R1 paper. The author list and title below follow the revised manuscript."
+type: software
+title: "Scene-R1: Inference and 3D Refinement"
+version: 0.1.0
+license: Apache-2.0
+repository-code: "https://github.com/819346675/Scene-R1"
+authors:
+  - family-names: Wang
+    given-names: Junjie
+  - family-names: Yuan
+    given-names: Zhihao
+  - family-names: Jiang
+    given-names: Shuyi
+  - family-names: Feng
+    given-names: Chun-Mei
+  - family-names: Zhang
+    given-names: Yaolun
+  - family-names: Cui
+    given-names: Shuguang
+  - family-names: Li
+    given-names: Zhen
+  - family-names: Zhao
+    given-names: Na
+preferred-citation:
+  type: article
+  title: "Scene-R1: Video-Grounded Large Language Models for 3D Scene Reasoning with Lightweight Annotations"
+  authors:
+    - family-names: Wang
+      given-names: Junjie
+    - family-names: Yuan
+      given-names: Zhihao
+    - family-names: Jiang
+      given-names: Shuyi
+    - family-names: Feng
+      given-names: Chun-Mei
+    - family-names: Zhang
+      given-names: Yaolun
+    - family-names: Cui
+      given-names: Shuguang
+    - family-names: Li
+      given-names: Zhen
+    - family-names: Zhao
+      given-names: Na
+  year: 2025
+  url: "https://arxiv.org/abs/2506.17545"
+  journal: "arXiv preprint arXiv:2506.17545"
