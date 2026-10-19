@@ -1,10 +1,16 @@
-Scene-R1 public inference and geometry release
+Scene-R1 public training, inference and geometry release
 
 This distribution retains the Apache License 2.0 text supplied with the
 Scene-R1 baseline archive. The original baseline README acknowledges:
   Time-R1 / TimeZero: https://github.com/xiaomi-research/Time-R1
-The baseline training sources also retain Hugging Face copyright notices;
-those training sources are not included in this focused release.
+The restored GRPO trainer and rewards adapt the baseline training sources;
+their Hugging Face copyright notice is retained. The shared trainer consolidates
+the baseline image/video flows. See docs/TRAINING.md for material changes.
+
+The QA answer normalization and refined matching functions come from the
+baseline's LEO integration. Copyright (c) 2023 embodied-generalist, MIT License.
+The full MIT notice is in scene_r1/training/LICENSE-LEO.txt and applies to
+scene_r1/training/leo_answer.py. Empty normalized references are ignored.
 
 The single-example model interface is adapted from the baseline Scene-R1
 Qwen2.5-VL inference flow. Dataset evaluation loops were not retained.

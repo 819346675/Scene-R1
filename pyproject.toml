@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "scene-r1"
-version = "0.1.0"
-description = "Scene-R1 inference components and SAI3D candidate refinement"
+version = "0.2.0"
+description = "Scene-R1 GRPO training, inference and SAI3D candidate refinement"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE.txt"}
@@ -14,9 +14,13 @@ dependencies = ["numpy>=1.24,<3", "Pillow>=10,<12"]
 [project.optional-dependencies]
 vlm = ["torch>=2.5,<3", "transformers>=4.51,<5", "qwen-vl-utils[decord]>=0.0.11,<0.1", "accelerate>=1,<2"]
 ply = ["plyfile>=1.0,<2"]
+train = ["torch==2.6.0", "torchvision==0.21.0", "transformers==4.51.3", "trl==0.15.2", "accelerate==1.4.0", "qwen-vl-utils==0.0.11", "av==14.2.0"]
 
 [project.scripts]
 scene-r1 = "scene_r1.__main__:main"
 
 [tool.setuptools.packages.find]
 include = ["scene_r1*"]
+
+[tool.setuptools.package-data]
+"scene_r1.training" = ["LICENSE-LEO.txt"]

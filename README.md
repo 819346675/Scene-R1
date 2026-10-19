@@ -13,7 +13,7 @@ Junjie Wang*, Zhihao Yuan*, Shuyi Jiang, Chun-Mei Feng, Yaolun Zhang, Shuguang C
 
 **From video observations to query-relevant 3D geometry.**
 
-[Quick start](#quick-start) · [SAI3D integration](docs/SAI3D.md) · [Data formats](docs/DATA_FORMATS.md) · [Release scope](docs/RELEASE_SCOPE.md)
+[Quick start](#quick-start) · [GRPO training](docs/TRAINING.md) · [SAI3D integration](docs/SAI3D.md) · [Data formats](docs/DATA_FORMATS.md) · [Release scope](docs/RELEASE_SCOPE.md)
 
 </div>
 
@@ -21,7 +21,7 @@ Junjie Wang*, Zhihao Yuan*, Shuyi Jiang, Chun-Mei Feng, Yaolun Zhang, Shuguang C
 
 Scene-R1 studies video-grounded spatial reasoning through temporal grounding, image grounding, and geometric refinement. The paper describes a reinforcement-learning framework that exposes intermediate reasoning and localizes queried objects from RGB-D observations.
 
-This repository provides **inference and 3D refinement code**: Qwen2.5-VL temporal/image grounding and question answering, RGB-D target-mask lifting, and SAI3D candidate generation, import, and matching. Please see the [paper](https://arxiv.org/abs/2506.17545) for experimental results.
+This repository provides **GRPO training, inference and 3D refinement code**: Qwen2.5-VL temporal/image grounding and question answering, RGB-D target-mask lifting, and SAI3D candidate generation, import, and matching. Please see the [paper](https://arxiv.org/abs/2506.17545) for experimental results.
 
 ```text
 Video + query ──► temporal interval ──► selected RGB frame ──► 2D target box
@@ -35,10 +35,11 @@ RGB-D scene ──► external SAI3D candidate generation ───────�
                                                  selected instance + tight AABB
 ```
 
-The commands expose individual components. Supply the selected frames, propagated target masks (e.g. from SAM2), and trained checkpoints externally. GRPO training, datasets, and weights are not included in this release.
+The commands expose individual components. Supply the selected frames, propagated target masks (e.g. from SAM2), and compatible checkpoints externally. Training data and model weights are not bundled. The [training guide](docs/TRAINING.md) explains the three restored training flows, original annotation adapters, launch commands, and changes from the baseline.
 
 ## What is included
 
+- **GRPO training:** baseline-derived temporal, image and QA training flows, explicit paper-aligned rewards, data validation, launchers and checkpoint saving/resume. See [training](docs/TRAINING.md) for setup and validation scope.
 - **Single-example inference:** temporal grounding, 2D box prediction, and video/image question answering with a user-supplied Qwen2.5-VL-compatible checkpoint.
 - **Metric geometry:** fuse target masks with aligned depth and camera-to-world poses; optionally select the original scene mesh vertices for consistent candidate matching.
 - **SAI3D integration:** generate instance candidates through an external SAI3D checkout, import its real index/mask format, and match without reading any GT instance IDs or labels.
@@ -47,6 +48,8 @@ The commands expose individual components. Supply the selected frames, propagate
 The default refinement uses **voxel overlap** between coarse target points and candidate points, following the matching branch of the supplied extended implementation. An explicitly selected `--metric aabb` mode matches their bounding boxes instead. These are different geometric matching rules, not interchangeable benchmark metrics. See [the integration notes](docs/SAI3D.md#matching-protocol).
 
 ## Quick start
+
+For training, install `python -m pip install -e ".[train]"` in a separate environment and follow the [complete training guide](docs/TRAINING.md). The lightweight steps below remain sufficient for geometry and parsing.
 
 ### 1. Install the lightweight components
 
