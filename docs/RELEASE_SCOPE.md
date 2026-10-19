@@ -1,6 +1,6 @@
 # Release scope and provenance
 
-This release is built from the simpler Scene-R1 baseline and selectively integrates the extended archive's SAI3D interface. It is a focused **inference/refinement** distribution, not a complete experiment archive.
+This release is built from the simpler Scene-R1 baseline and selectively integrates the extended archive's SAI3D interface. It includes **training, inference and refinement components**, not a complete experiment archive.
 
 ## Included, external, omitted
 
@@ -13,11 +13,11 @@ This release is built from the simpler Scene-R1 baseline and selectively integra
 | GT-free candidate matching and AABB extraction | Included; voxel default, explicit AABB option |
 | Temporal frame extraction and target-mask propagation | User integration; the paper's SAM2 pipeline is not included |
 | Semantic-SAM / SAI3D model code and checkpoints | External, separately licensed |
-| Training recipes and legacy GRPO trainers | Not included in this release |
+| Temporal/image/QA GRPO training | Included as a baseline-derived adaptation; see [training guide](TRAINING.md) |
 | Benchmark scripts, metrics, predictions, result tables | Not included |
 | Datasets, label-generation notebook outputs, model weights | Not included |
 
-This release focuses on reusable inference and geometric refinement. Training and benchmark evaluation are outside its scope. The commands are not an end-to-end reproduction script.
+Training is included with explicit data adapters, rewards and launchers. Benchmark evaluation is outside the release scope. The commands are not a one-command end-to-end experiment reproduction script.
 
 ## Changes from the baseline
 
@@ -47,4 +47,4 @@ bcc674740951b3a1d9e300980da16860517e8f0e44329301fb47bc4be4a02f51
 
 ## Runtime validation
 
-The 24 synthetic CPU tests cover parsing, projection, candidate import, deterministic matching and fallback behavior. Real-checkpoint GPU inference and real-scene SAI3D execution have not been validated as part of assembling this release. Use the environments and data preparation documented by the respective upstream projects. Models, datasets, SAI3D, Semantic-SAM and SAM2 are external and remain subject to their own terms.
+Synthetic CPU tests cover parsing, projection, candidate import, deterministic matching, training data schemas and rewards. Optional training smoke tests use tiny randomly initialized Qwen2.5-VL models. Full-scale GPU training, real-checkpoint GPU inference and real-scene SAI3D execution have not been validated as part of assembling this release. Use the environments and data preparation documented by the respective upstream projects. Models, datasets, SAI3D, Semantic-SAM and SAM2 are external and remain subject to their own terms.
